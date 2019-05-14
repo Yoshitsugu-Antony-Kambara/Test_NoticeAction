@@ -71,7 +71,9 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         content.categoryIdentifier = "category_select"
         
         // 60秒ごとに繰り返し通知
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        let date = DateComponents(hour:9, minute:0)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
         let request = UNNotificationRequest(identifier: "notification",
                                             content: content,
                                             trigger: trigger)
